@@ -1,9 +1,8 @@
 from selenium import webdriver
 import time
-# from bs4 import BeautifulSoup
 
-# f = open('C:/Users/monday/Desktop/이력서/개발/pythonProject/test/검색키워드.txt', 'r', encoding='UTF8')#집
-f = open('C:/Users/AE51/Desktop/바이너리큐브/pythonProject1/buk_crawling/검색키워드.txt', 'r', encoding='UTF8')#회사
+
+f = open('C:/Users/AE51/Desktop/바이너리큐브/pythonProject1/buk_crawling/검색키워드.txt', 'r', encoding='UTF8')
 
 options = webdriver.ChromeOptions()
 options.add_argument('headless')  # 웹 브라우저를 띄우지 않는 headlss chrome 옵션 적용
@@ -34,9 +33,8 @@ for i in range(0, list):
     data = f"\n{lis[i]}\n"#해결하였음.
     write_ranking.write(str(data))
     print("지금 검색된 키워드에서 입력한 단어를 찾을 것입니다 : ", lis[i])
-    
-    # driver = webdriver.Chrome('C:/Users/monday/Downloads/chromedriver.exe', options=options)#집
-    driver = webdriver.Chrome('C:/Users/AE51/Downloads/chromedriver.exe', options=options)#회사
+   
+    driver = webdriver.Chrome('C:/Users/AE51/Downloads/chromedriver.exe', options=options)
 
     #M
     driver.get('https://m.ad.search.naver.com/search.naver?sm=&where=m_expd&query=')
@@ -89,8 +87,6 @@ for i in range(0, list):
             print("검색된 순위 : ", index + 1, text)
             data2 = f"{index+1}\t" + f"{text}\n"
             write_ranking.write(str(data2))
-        # elif "" in subs:
-        #     print("전부")
 
     #배열초기화
     write_ranking.close()
